@@ -1,3 +1,4 @@
+name: build-test
 on:
   push: 
     branches:
@@ -9,21 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          sudo apt install --no-install-recommends \
-          autoconf \
-          automake \
-          autopoint \
-          bison \
-          gettext \
-          git \
-          gperf \
-          texinfo \
-          patch \
-          rsync \
-          xz-utils \
-          gcc \
-          g++ \
-          make
+          sudo apt update
+          sudo apt install --no-install-recommends build-essential gettext gperf texinfo patch rsync xz-utils
       - run: ./bootstrap
       - run: ./configure
       - run: make
