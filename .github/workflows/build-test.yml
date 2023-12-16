@@ -1,0 +1,37 @@
+on:
+  push: 
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          apt install --no-install-recommends \
+          autoconf \
+          automake \
+          autopoint \
+          bison \
+          gettext \
+          git \
+          gperf \
+          texinfo \
+          patch \
+          rsync \
+          xz-utils \
+          gcc \
+          g++ \
+          make
+      - run: ./bootstrap
+      - run: ./configure
+      - run: make
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - run: make check
+    
+  
