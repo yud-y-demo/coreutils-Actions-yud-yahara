@@ -5,13 +5,13 @@ on:
       - master
 
 jobs:
-  build:
+  build-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: |
           sudo apt update
-          sudo apt install --no-install-recommends build-essential gettext gperf texinfo patch rsync xz-utils
+          sudo apt install --no-install-recommends autopoint build-essential gettext gperf texinfo patch rsync xz-utils
       - run: ./bootstrap
       - run: ./configure
       - run: make
