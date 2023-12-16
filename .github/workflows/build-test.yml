@@ -27,11 +27,4 @@ jobs:
       - run: ./bootstrap
       - run: ./configure
       - run: make
-
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps: 
-      - run: make check
-    
-  
+      - run: make check 
