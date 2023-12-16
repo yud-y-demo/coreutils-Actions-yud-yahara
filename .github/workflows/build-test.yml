@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          apt install --no-install-recommends \
+          sudo apt install --no-install-recommends \
           autoconf \
           automake \
           autopoint \
